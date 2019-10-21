@@ -1,5 +1,7 @@
 ## 基于 Flask 框架的论坛
 
+论坛地址：https://www.xxjerome.club/
+
 **主要功能**
 
 技术栈：Python + Flask + MySQL + Linux/Ubuntu + Redis + Nginx + Gunicorn
