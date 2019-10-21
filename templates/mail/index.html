@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class=" widthauto">
+{% extends "topic/base.html" %}
+{% block title %}发送信息{% endblock %}
+
+{% block main %}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>发送短消息</title>
+        <link rel="stylesheet" href="/static/css/steamcn/steam_info.css" type="text/css">
+
+        <link rel="stylesheet" type="text/css" href="/static/css/steamcn/tiny-bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/steamcn/site.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/steamcn/new-style.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/steamcn/style_7_common.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/steamcn/style_7_home_space.css">
+        <link rel="stylesheet" id="css_widthauto" type="text/css"
+              href="/static/css/steamcn/style_7_widthauto.css">
+
+    </head>
+    <body id="nv_home" class="pg_spacecp">
+    <div id="wp" class="wp cl" style="min-width: 1206px;">
+        <div id="ct" class="ct2_a wp cl">
+            <div class="mn">
+                <div class="bm bw0">
+                    <ul class="tb cl">
+                        <li class="a"><a href="{{ url_for('.view') }}">私人消息</a></li>
+                    </ul>
+                    <div id="__pmform_0">
+                        <form id="pmform_0" name="pmform_0" method="post"
+                              action="{{ url_for('.add') }}">
+                            <div class="c">
+                                <table cellspacing="0" cellpadding="0" class="tfm pmform mtm">
+                                    <tbody>
+                                    <tr>
+                                        <th><label for="receiver_id">收件人id:</label></th>
+                                        <td>
+                                            <div class="cl">
+                                                <div class="un_selector z cl">
+                                                    <input type="text" name="receiver_id" id="receiver_id" autocomplete="off"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th><label for="title">标题:</label></th>
+                                        <td>
+                                            <div class="cl">
+                                                <div class="z cl">
+                                                    <input type="text" name="title" id="title" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th><label for="content">内容:</label></th>
+                                        <td>
+                                            <div class="tedt">
+                                                <div class="area">
+                                                    <textarea rows="8" cols="40" name="content" class="pt" id="content"></textarea>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <td>
+                                            <button type="submit" class="pn pnc"><strong>发送</strong></button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="appl">
+                <div class="tbn">
+                    <h2 class="mt bbda">通知</h2>
+                    <ul>
+                        <li class="a"><em class="notice_pm"></em><a
+                                href="{{ url_for('.view') }}">消息 </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+</html>
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{##}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>邮件发送</title>#}
+{#    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">#}
+{#</head>#}
+{#<body >#}
+{##}
+{#<p>发送邮件</p>#}
+{#<div align="center">#}
+{#<form class="pure-form pure-form-stacked" method="post" action="{{ url_for('.add') }}">#}
+{#    <fieldset class="pure-group">#}
+{#        <legend>发送邮件</legend>#}
+{##}
+{#        <label for="email">Title</label>#}
+{#        <input type="text" class="pure-input-1-1" name="title" placeholder="title">#}
+{##}
+{#        <label for="content">Content</label>#}
+{#        <textarea type="text" class="pure-input-1-4" name="content" placeholder="content"#}
+{#        style="margin: 0px 0px 0px 262px; resize: none;"></textarea>#}
+{#        <input type="text" name="content" placeholder="content">#}
+{##}
+{#        <label for="receiver_id">receiver_id</label>#}
+{#        <input type="text" name="receiver_id" placeholder="receiver_id">#}
+{##}
+{#        <button type="submit" class="pure-button pure-button-primary">发送邮件</button>#}
+{#    </fieldset>#}
+{#</form>#}
+{#</div>#}
+{#    <fieldset class="pure-group">#}
+{#        <input type="text" class="pure-input-1-2" placeholder="A title">#}
+{#        <textarea class="pure-input-1-2" placeholder="Textareas work too"></textarea>#}
+{#    </fieldset>#}
+{#<form method="post" action="{{ url_for('.add') }}">#}
+{#    <input type="text" name="content" placeholder="content">#}
+{#    <input type="text" name="title" placeholder="title">#}
+{#    <input type="text" name="receiver_id" placeholder="receiver_id">#}
+{#    <button type="submit" class="pure-button pure-button-primary">发送邮件</button>#}
+{#</form>#}
+{##}
+{#<p>收到邮件</p>#}
+{#{% for r in received %}#}
+{#    <div>#}
+{#        <a href="{{ url_for('.view', id = r.id) }}"> {{ r.title }}</a>#}
+{#    </div>#}
+{#{% endfor %}#}
+{##}
+{#<p>发送邮件</p>#}
+{#{% for s in send %}#}
+{#    <div>#}
+{#        <a href="{{ url_for('.view', id = s.id) }}"> {{ s.title }}</a>#}
+{#    </div>#}
+{#{% endfor %}#}
+{##}
+{#</body>#}
+{#</html>#}

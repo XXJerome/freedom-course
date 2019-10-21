@@ -1,0 +1,127 @@
+.png_loading {
+    width: 128px;
+    height: 128px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: -1;
+    -webkit-animation: png_loading 1s steps(18) infinite;
+            animation: png_loading 1s steps(18) infinite;
+}
+@-webkit-keyframes png_loading {
+    100% { background-position: -2304px; }
+}
+@keyframes png_loading {
+    100% { background-position: -2304px; }
+}
+
+div.steamInfoWrapper {
+    background-repeat: no-repeat;
+    background-position: 16px 4px;
+    text-indent: 0;
+    display: none;
+    position: absolute !important;
+    width: 312px;
+    height: 400px;
+    padding: 2px;
+    z-index: 10;
+}
+div.steamInfoWrapper iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.steamInfoLink.linkOwn, .steamInfoLink.linkWish {
+    color: white !important;
+}
+
+.steamInfoLink.linkWish {
+    background-color: #007399;
+}
+
+.steamInfoLink.linkOwn {
+    background-color: #5C8A00;
+}
+
+.steamInfoLink.linkOwn.linkDesura {
+    background-color: #3B9C9C;
+}
+
+
+a.steamInfoLink.hideLinkIcon:after {
+    display: none;
+}
+
+a.steamInfoLink[href^="https://store.steampowered.com/app/"]:after,
+a.steamInfoLink[href^="https://store.steampowered.com/sub/"]:after,
+a.steamInfoLink[href^="http://store.steampowered.com/app/"]:after,
+a.steamInfoLink[href^="http://store.steampowered.com/sub/"]:after
+{
+    content: none;
+    bottom: -0.15em;
+    padding-left: 4px;
+    position: relative;
+    opacity: 0.5;
+}
+
+a.steamInfoLink[href^="http://www.desura.com/games/"]:after
+{
+    content: none;
+    bottom: -0.15em;
+    padding-left: 4px;
+    position: relative;
+    opacity: 0.5;
+}
+
+a.steamInfoLink[href^="http://www.amazon.com/dp/"]:after,
+a.steamInfoLink[href^="http://www.amazon.com/gp/product/"]:after
+{
+    content: none;
+    bottom: -0.15em;
+    padding-left: 4px;
+    position: relative;
+    opacity: 0.5;
+}
+
+a.steamInfoLink[href^="http://www.gamersgate."]:after
+{
+    content: none;
+    bottom: -0.15em;
+    padding-left: 4px;
+    position: relative;
+    opacity: 0.5;
+}
+
+a.steamInfoLink[href^="http://store.indiegala.com/index.php/"]:after
+{
+    content: none;
+    bottom: -0.15em;
+    padding-left: 4px;
+    position: relative;
+    opacity: 0.5;
+}
+
+a.steamInfoLink[href^="http://www.greenmangaming.com/"]:after
+{
+    content: none;
+    bottom: -0.15em;
+    padding-left: 4px;
+    position: relative;
+    opacity: 0.5;
+}
+
+a.steamInfoLink[href^="http://store.sonkwo.com/node/"]:after,
+a.steamInfoLink[href^="http://www.sonkwo.com/products/"]:after
+{
+    content: none;
+    bottom: -0.15em;
+    padding-left: 0px;
+    position: relative;
+    opacity: 0.5;
+}
+
+a:hover:after {
+    opacity: 1;
+}

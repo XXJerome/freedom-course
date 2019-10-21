@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://steamcn.com/home.php?mod=space&do=pm&subop=view&touid=199958#last -->
+<html class=" widthauto" zhtongwen="simplified">
+{% extends "topic/base.html" %}
+{% block title %}{{ message.title }}{% endblock %}
+
+{% block main %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>查看消息</title>
+    <link rel="stylesheet" href="/static/css/steamcn/steam_info.css" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="/static/css/steamcn/tiny-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/steamcn/site.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/steamcn/new-style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/steamcn/style_7_common.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/steamcn/style_7_home_space.css">
+    <link rel="stylesheet" id="css_widthauto" type="text/css"
+          href="/static/css/steamcn/style_7_widthauto.css">
+</head>
+<body id="nv_home" class="pg_space">
+<div id="wp" class="wp cl" style="min-width: 1206px;">
+    <div id="ct" class="ct2_a wp cl">
+        <div class="mn">
+            <div class="bm bw0">
+                <ul class="tb cl">
+                    <li class="a"><a
+                            href="{{ url_for('.view') }}">私人消息</a></li>
+                    <li class="o"><a href="{{ url_for('.index') }}">发送消息</a></li>
+                </ul>
+                <div id="pm_ul" class="xld xlda mbm pml"><a name="last"></a>
+                    <dl id="pmlist_142387" class="bbda cl">
+                        <!--头像-->
+                        <dd class="m avt" id="bottom">
+                            <a href="{{ url_for('index.user_detail', id=message.sender_id) }}" target="_blank"><img
+                                    src="{{ message.sender().image }}"></a>
+                        </dd>
+                        <!--message 内容-->
+                        <dd class="ptm">
+                            <a href="{{ url_for('index.user_detail', id=message.sender_id) }}" target="_blank"
+                               class="xw1">{{ message.sender().username }}</a>
+                            &nbsp;
+                            <br>
+                            标题：{{ message.title }}
+                            <br>
+                            内容：{{ message.content }}
+                            <br>
+                            <span class="xg1">{{ message.created_time | format_time }}</span>
+                        </dd>
+                    </dl>
+                    <div id="pm_append" style="display: none"></div>
+                </div>
+                {#                在同一个标题下发送信息#}
+                {#                <div id="pm_ul_post" class="xld xlda pml">#}
+                {#                    <dl class="cl">#}
+                {#                        <dd class="m avt">#}
+                {#                            <a href="{{ url_for('index.user_detail', id=user.id) }}"><img#}
+                {#                                    src="{{ user.image }}"></a>#}
+                {#                        </dd>#}
+                {#                        <dd class="ptm">#}
+                {#                            <form id="pmform" name="pmform" method="post" autocomplete="off"#}
+                {#                                  action="{{ url_for('.add') }}">#}
+                {#                                <div class="tedt">#}
+                {#                                    <div class="area">#}
+                {#                                        <textarea rows="3" cols="40" name="message" class="pt" id="replymessage"></textarea>#}
+                {#                                    </div>#}
+                {#                                </div>#}
+                {#                                <p class="mtn">#}
+                {#                                    <button type="submit" name="pmsubmit" id="pmsubmit" class="pn pnc" value="true">#}
+                {#                                        <strong>发送</strong></button>#}
+                {#                                    <span id="pmforum_return"></span>#}
+                {#                                </p>#}
+                {#                                <input type="hidden" name="formhash" value="dae42d35">#}
+                {#                                <input type="hidden" name="topmuid" value="199958">#}
+                {#                            </form>#}
+                {#                        </dd>#}
+                {#                    </dl>#}
+                {#                </div>#}
+            </div>
+        </div>
+        <div class="appl">
+            <div class="tbn">
+                <h2 class="mt bbda">通知</h2>
+                <ul>
+                    <li class="a"><em class="notice_pm"></em><a href="{{ url_for('.view') }}">消息</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="drag">
+                <div id="diy2" class="area"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+</body>
+</html>
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>邮件详情</title>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<p>发件人 id: {{ message.sender_id }}</p>#}
+{#<p>收件人 id: {{ message.receiver_id }}</p>#}
+{#<p>内容</p>#}
+{#<p>{{ message.content }}</p>#}
+{##}
+{#</body>#}
+{#</html>#}

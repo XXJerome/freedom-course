@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更改个人信息</title>
+</head>
+<body>
+<div id="main">
+    <div id="content">
+        <div id="panel">
+    <form class="form-horizontal" method="post" action="{{ url_for('.update') }}">
+        <div class="control-group">
+            <label class="control-label">新密码</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" name="new_pass">
+                <input type="hidden" id="token" name="token" value="{{ token }}">
+            </div>
+        </div>
+        <div class="form-actions">
+            <input type="submit" class="span-primary" value="更改密码">
+        </div>
+    </form>
+        </div>
+        </div>
+</div>
+</body>
+</html>

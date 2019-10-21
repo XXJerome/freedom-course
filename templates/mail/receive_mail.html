@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://steamcn.com/home.php?mod=space&do=pm&filter=privatepm -->
+<html class=" widthauto" zhtongwen="simplified">
+{% extends "topic/base.html" %}
+{% block title %}信箱{% endblock %}
+
+{% block main %}
+
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="/static/css/steamcn/steam_info.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="/static/css/steamcn/style_7_common.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/steamcn/style_7_home_space.css">
+
+        <link rel="stylesheet" id="css_widthauto" type="text/css"
+              href="/static/css/steamcn/style_7_widthauto.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/steamcn/tiny-bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/steamcn/site.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/steamcn/new-style.css">
+        {#    全选#}
+        <script>
+            function checkall(allcheckname, checkname) {
+                var all = document.getElementById(allcheckname);//获取到点击全选的那个复选框的id
+                var one = document.getElementsByName(checkname);//获取到复选框的名称
+                if (all.checked == true) {//因为获得的是数组，所以要循环 为每一个checked赋值
+                    for (var i = 0; i < one.length; i++) {
+                        one[i].checked = true;
+                    }
+
+                } else {
+                    for (var j = 0; j < one.length; j++) {
+                        one[j].checked = false;
+                    }
+                }
+            }
+        </script>
+    </head>
+
+
+    <body id="nv_home" class="pg_space">
+
+    <div id="wp" class="wp cl" style="min-width: 1206px;">
+        <style id="diy_style" type="text/css"></style>
+        <div id="ct" class="ct2_a wp cl">
+            <div class="mn">
+                <div class="bm bw0">
+                    <h1 class="mt"><img alt="pm" src="/static/css/steamcn/pm.gif" class="vm"> 消息
+                    </h1>
+                    <ul class="tb cl">
+                        <li class="a"><a href="/mail/received_mail">私人消息</a></li>
+                        <li class="o"><a href="/mail">发送消息</a></li>
+                    </ul>
+                    <form id="deletepmform"
+                          action="{{ url_for('mail.delete') }}"
+                          method="post" autocomplete="off" name="deletepmform">
+                        <div class="xld xlda pml mtm mbm">
+                            {% for m in messages %}
+                                <dl id="{{ m.id }}" class="bbda cur1 cl">
+                                    <dd class="m avt">
+                                        {#                                    <div class="newpm_avt" title="有未读消息"></div>#}
+                                        <a href="{{ url_for('index.user_detail', id=m.sender_id) }}"
+                                           target="_blank"><img
+                                                src="{{ m.sender().image }}">
+                                        </a>
+                                    </dd>
+                                    <dd class="ptm pm_c">
+                                        <div class="o">
+                                            <input type="checkbox" name="id" id="{{ m.id }}" class="pc"
+                                                   value="{{ m.id }}">
+                                        </div>
+                                        <a href="{{ url_for('index.user_detail', id=m.sender().id) }}"
+                                           target="_blank" class="xw1">{{ m.sender().username }}
+                                        </a>
+                                        :<a href="{{ url_for('mail.detail', id=m.id) }}"> {{ m.title }} </a><br>
+                                        &nbsp; <br>
+                                        <span class="xg1">{{ m.created_time | format_time }}</span> &nbsp;
+                                    </dd>
+                                </dl>
+                            {% endfor %}
+                        </div>
+                        <div class="pgs pbm cl pm_op">
+                            <label for="delete_all" onclick="checkall('delete_all', 'id');">
+                                <input type="checkbox" name="delete_all" id="delete_all" class="pc"> 全选
+                            </label>
+                            <button class="pn" type="submit"><strong>删除</strong>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="appl">
+                <div class="tbn">
+                    <h2 class="mt bbda">通知</h2>
+                    <ul>
+                        <li class="a"><em class="notice_pm"></em><a href="{{ url_for('mail.view') }}">消息 </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="drag">
+                    <div id="diy2" class="area"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+</body>
+</html>

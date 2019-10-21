@@ -1,0 +1,11 @@
+.idea
+log.txt
+*.pyc
+secret.py
+database_secret.conf
+1_www.xxjerome.club_bundle.crt
+2_www.xxjerome.club.key
+nginx.conf
+Nginx
+output.png
+profile_database.png
