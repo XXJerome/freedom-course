@@ -14,10 +14,11 @@
 
 **运行**
 
-1. cd /var/www
-2. git clone git@github.com:XXJerome/bbs.git
+1. mkdir -p /var/www
+2. cd /var/www
+3. git clone git@github.com:XXJerome/bbs.git
 4. cd /var/www/bbs
-3. bash deploy.sh
+5. bash deploy.sh
 
 **注意事项**
 
